@@ -16,7 +16,8 @@ Imports:
     LookR,
     RPostgreSQL,
     DBI,
-    rprojroot
+    rprojroot,
+    RJSONIO
 Remotes: looker/lookr
 Suggests:
     testthat
