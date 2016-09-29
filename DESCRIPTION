@@ -2,9 +2,9 @@ Package: glootility
 Title: Useful Functions for Gloo Analytics R Projects
 Version: 0.0.0.9000
 Authors@R: person("John", "Hower", email = "jhower@tangogroup.com", role = c("aut", "cre"))
-Description: This is my collection of functions that I've found myself using
+Description: This is a collection of functions that I've found myself using
     over and over again in my analytics projects. Applications include: connecting
-    to LookR and Postgres, running chisquare analyses on user groups, plotting
+    to LookR and Postgres, running chisquare analyses on user groups, and plotting
     triangle diagrams.
 Depends:
     R (>= 3.3.1)
