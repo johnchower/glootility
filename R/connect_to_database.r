@@ -12,7 +12,7 @@
 #' @examples
 #' connect_to_looker(auth_file_location="~/authfiles")
 
-connect_to_looker <- function(auth_file_location = 
+connect_to_lookr <- function(auth_file_location = 
                                rprojroot::find_root(
                                  rprojroot::has_file('authenticate')
                                )
