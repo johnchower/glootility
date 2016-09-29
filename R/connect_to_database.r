@@ -25,8 +25,7 @@ connect_to_lookr <- function(auth_file_location =
                         , secret = auth_info[2]
                         , api_path = auth_info[3]) 
   } else {
-    LookR::looker_setup(...
-                        , api_path = auth_info[3]) 
+    LookR::looker_setup(...) 
   }
 }
 
@@ -55,21 +54,18 @@ connect_to_postgres <- function(auth_file_location =
                    paste(auth_file_location, "authenticate", sep="/")
                  )
     connection <- RPostgreSQL::dbConnect(
-             driver
-             , dbname = auth_info[4]
-             , host = auth_info[5]
-             , port = auth_info[6]
-             , user = auth_info[7]
-             , password = auth_info[8]
-           ) 
+                    driver
+                    , dbname = auth_info[4]
+                    , host = auth_info[5]
+                    , port = auth_info[6]
+                    , user = auth_info[7]
+                    , password = auth_info[8]
+                  ) 
   } else {
     connection <- RPostgreSQL::dbConnect(
-             driver
-             , dbname = auth_info[4]
-             , host = auth_info[5]
-             , port = auth_info[6]
-             , ...
-           ) 
+                    driver
+                    , ...
+                  ) 
   }
   assign("postgres_connection"
          , list(drv = driver, con = connection)
