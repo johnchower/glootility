@@ -4,3 +4,4 @@
 authenticate
 *.swp
 csv_test*
+Session.vim
