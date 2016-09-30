@@ -13,7 +13,7 @@ load_csv_from_directory <- function(csv_path){
 
 #' Loop through a list of data frames, and assign each to a name in a specified
 #' environment, .GlobalEnv by default. The names are specified in a JSON file
-#' which lives in the same directory as the csv fil
+#' which lives in the same directory as the csv file
 #'
 #' @param df_list A list of data frames.
 #' @param name_list A list of key-value pairs of the form list(list(col.names =
