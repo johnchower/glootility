@@ -7,6 +7,7 @@
 #' @return A list of data frames, one for each csv file in csv_path.
 
 load_csv_from_directory <- function(csv_path){
+  csv_list <- dir(csv_path)
   "Hello"
 }
 
@@ -27,4 +28,4 @@ assign_by_colnames <- function(df_list
                                , name_list
                                , env = .GlobalEnv){
   "Hello"
-})
+}
