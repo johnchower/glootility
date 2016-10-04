@@ -21,6 +21,6 @@ Connects your R session to the Looker API. No objects are returned.
 Connect to Looker via the LookR package.
 }
 \examples{
-connect_to_lookr(auth_file_location="~/authfiles")
+connect_to_looker(auth_file_location="~/authfiles")
 }
 
