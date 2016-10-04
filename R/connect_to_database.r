@@ -11,6 +11,7 @@
 #' @return Connects your R session to the Looker API. No objects are returned.
 #' @examples
 #' connect_to_looker(auth_file_location="~/authfiles")
+#' @export
 
 connect_to_lookr <- function(auth_file_location = 
                                rprojroot::find_root(
@@ -41,7 +42,7 @@ connect_to_lookr <- function(auth_file_location =
 #' con.
 #' @examples
 #' connect_to_postgres(auth_file_location="~/authfiles")
-
+#' @export
 
 connect_to_postgres <- function(auth_file_location = 
                                   rprojroot::find_root(
