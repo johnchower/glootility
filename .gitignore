@@ -5,3 +5,4 @@ authenticate
 *.swp
 csv_test*
 Session.vim
+scratch_work*
