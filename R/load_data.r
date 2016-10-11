@@ -1,7 +1,11 @@
 # This folder contains tools for loading csv data into memory
 
 #' Load all csv files in a given directory, and assign them names in a given
-#' environment (.GlobalEnv by defaul)
+#' environment (.GlobalEnv by default)
+#' The names are assigned according to each data frame's column names. The
+#' mapping from column names to assigned name is specified by a JSON file that
+#' lives in the same directory as the csv files. See the
+#' files in csv_test for an example of how to properly format said JSON file.
 #'
 #' @param path The location of the directory to be loaded.
 #' @return Alters the global environment, doesn't return any object.
@@ -22,7 +26,7 @@ load_and_name_csvs_from_directory <- function(path, ...){
 #' @return A list of data frames, one for each csv file in csv_path.
 
 load_csv_from_directory <- function(csv_path){
-  csv_list <- dir(csv_path)
+  csv_list <- dir(csv_path, full.names = T)
   csv_list <- grep(pattern = '.csv$', x = csv_list, value = T)
   csv_list <- as.list(csv_list)
 
@@ -40,7 +44,7 @@ load_csv_from_directory <- function(csv_path){
 #' functions.
 
 load_name_list_from_directory <- function(name_list_path){
-  path <- dir(name_list_path)
+  path <- dir(name_list_path, full.names = T)
   name_list <- grep(pattern = '.JSON$', x = path, value = T)
   RJSONIO::fromJSON(name_list)
 }
@@ -53,7 +57,7 @@ load_name_list_from_directory <- function(name_list_path){
 #' @param name_list A list of key-value pairs of the form list(list(col.names =
 #' c("name1", "name2"), assigned_name = "out_name"), list(col.names =
 #' c("name3"), assigned_name = "out_name2")). Such lists are generated from
-#' JSON files (see example_name_list.JSON).
+#' JSON files (see csv_test/name_list.JSON)
 #' @return Alters the global environment, doesn't return any object.
 
 assign_by_colnames_2 <- function(df_list
@@ -62,6 +66,29 @@ assign_by_colnames_2 <- function(df_list
   lapply(
     df_list
     , FUN = function(df)assign_by_colnames_1(df, name_list, ...)
+  )
+}
+
+#' Given a data frame, loop through a list of (col.name, assigned_name) pairs,
+#' If the column names match col.name, assign the data frame to the
+#' corresponding assigned_name.
+#'
+#' @param df A data frame.
+#' @param name_list A list of key-value pairs of the form list(list(col.names =
+#' c("name1", "name2"), assigned_name = "out_name"), list(col.names =
+#' c("name3"), assigned_name = "out_name2")). Such lists are generated from
+#' JSON files (see csv_test/name_list.JSON)
+#' @return Alters the global environment, doesn't return any object.
+
+assign_by_colnames_1 <- function(df
+                               , name_list
+                               , ...){
+  lapply(
+    name_list
+    , FUN = function(x)assign_by_colnames_0(df
+                                            , x$col.names
+                                            , x$assigned_name
+                                            , ...)
   )
 }
 
@@ -75,35 +102,13 @@ assign_by_colnames_2 <- function(df_list
 #' column names match col.names
 #' @return Alters the global environment, doesn't return any object.
 
-#' Given a data frame, loop through a list of (col.name, assigned_name) pairs,
-#' If the column names match col.name, assign the data frame to the
-#' corresponding assigned_name.
-#'
-#' @param df A data frame.
-#' @param name_list A list of key-value pairs of the form list(list(col.names =
-#' c("name1", "name2"), assigned_name = "out_name"), list(col.names =
-#' c("name3"), assigned_name = "out_name2")). Such lists are generated from
-#' JSON files (see example_name_list.JSON).
-#' @return Alters the global environment, doesn't return any object.
-
-assign_by_colnames_1 <- function(df
-                               , name_list
-                               , ...){
-  lapply(
-    name.list
-    , FUN = function(x)assign_by_colnames_0(df
-                                            , x$col.names
-                                            , x$assigned_name
-                                            , ...)
-  )
-}
 
 assign_by_colnames_0 <- function(df
                                  , col.names
                                  , assigned_name
                                  , env = globalenv()){
-  diff1 <- length(dplyr::setdiff(col.names, colnames(df)))
-  diff2 <- length(dplyr::setdiff(colnames(df), col.names))
+  diff1 <- length(setdiff(col.names, colnames(df)))
+  diff2 <- length(setdiff(colnames(df), col.names))
   if(diff1 == 0 & diff2 == 0){
       assign(assigned_name, df, envir = env)
     }

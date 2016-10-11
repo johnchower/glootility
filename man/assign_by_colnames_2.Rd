@@ -14,7 +14,7 @@ assign_by_colnames_2(df_list, name_list, ...)
 \item{name_list}{A list of key-value pairs of the form list(list(col.names =
 c("name1", "name2"), assigned_name = "out_name"), list(col.names =
 c("name3"), assigned_name = "out_name2")). Such lists are generated from
-JSON files (see example_name_list.JSON).}
+JSON files (see csv_test/name_list.JSON)}
 }
 \value{
 Alters the global environment, doesn't return any object.

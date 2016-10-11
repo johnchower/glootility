@@ -3,7 +3,11 @@
 \name{load_and_name_csvs_from_directory}
 \alias{load_and_name_csvs_from_directory}
 \title{Load all csv files in a given directory, and assign them names in a given
-environment (.GlobalEnv by defaul)}
+environment (.GlobalEnv by default)
+The names are assigned according to each data frame's column names. The
+mapping from column names to assigned name is specified by a JSON file that
+lives in the same directory as the csv files. See the
+files in csv_test for an example of how to properly format said JSON file.}
 \usage{
 load_and_name_csvs_from_directory(path, ...)
 }
@@ -15,6 +19,10 @@ Alters the global environment, doesn't return any object.
 }
 \description{
 Load all csv files in a given directory, and assign them names in a given
-environment (.GlobalEnv by defaul)
+environment (.GlobalEnv by default)
+The names are assigned according to each data frame's column names. The
+mapping from column names to assigned name is specified by a JSON file that
+lives in the same directory as the csv files. See the
+files in csv_test for an example of how to properly format said JSON file.
 }
 

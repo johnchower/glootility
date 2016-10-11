@@ -16,9 +16,9 @@ Imports:
     LookR,
     RPostgreSQL,
     DBI,
-    rprojroot,
     RJSONIO
 Remotes: looker/lookr
 Suggests:
-    testthat
+    testthat,
+    rprojroot
 RoxygenNote: 5.0.1
