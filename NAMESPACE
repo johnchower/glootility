@@ -3,3 +3,5 @@
 export(connect_to_lookr)
 export(connect_to_postgres)
 export(load_and_name_csvs_from_directory)
+export(tufte_bar_chart)
+export(tufte_grouped_bar_chart)
