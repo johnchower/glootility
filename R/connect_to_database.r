@@ -18,6 +18,9 @@ connect_to_lookr <- function(auth_file_location =
                                  rprojroot::has_file('authenticate')
                                )
                               , ...){
+  # Set java memory limit
+  options(java.parameters = "-Xmx6g")
+  # Look for an authentication file. Use it to login if one is found.
   if(is.character(auth_file_location)){
     auth_info <- readLines(
                    paste(auth_file_location, "authenticate", sep="/")
