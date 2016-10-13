@@ -1,6 +1,6 @@
 # Tools for loading data from Gloo's databases
 
-#' Run a list of queries specified by a list, and save the results in a list of
+#' Run a list of queries and save the results in a list of
 #' data frames.
 #'
 #' @param query_list A list of (query_name, query) pairs.
@@ -30,3 +30,4 @@ run_query_list <- function(query_list
   setNames(object = out 
            , nm = namevec)
 }
+

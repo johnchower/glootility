@@ -2,7 +2,7 @@
 % Please edit documentation in R/database_load_data.r
 \name{run_query_list}
 \alias{run_query_list}
-\title{Run a list of queries specified by a list, and save the results in a list of
+\title{Run a list of queries and save the results in a list of
 data frames.}
 \usage{
 run_query_list(query_list, connection = con)
@@ -17,7 +17,7 @@ See gloograph::test_queries for an example of how to format this list.}
 A named list of data frames, one for each (query_name, query) pair.
 }
 \description{
-Run a list of queries specified by a list, and save the results in a list of
+Run a list of queries and save the results in a list of
 data frames.
 }
 
