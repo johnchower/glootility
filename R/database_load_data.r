@@ -51,14 +51,24 @@ run_look_list <- function(look_list){
       })
     )
 
+  type_convert_as_is <- function(x)type.convert(x, as.is = T)
   out <-
     lapply(
       look_list
       , FUN = function(x){
-        LookR::run_look(x[['look_id']])
+        with_factors <- LookR::run_look(x[['look_id']])
+        out <- 
+          dplyr::mutate_each(
+            with_factors
+            , dplyr::funs( 
+              type_convert_as_is(as.character(.))
+          ))
+        return(out)       
     })
 
   setNames(object = out 
            , nm = namevec)
 
 }
+
+
