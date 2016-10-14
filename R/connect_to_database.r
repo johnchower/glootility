@@ -46,6 +46,8 @@ connect_to_lookr <- function(auth_file_location =
 #' @examples
 #' connect_to_postgres(auth_file_location="~/authfiles")
 #' @export
+#' @import RPostgreSQL
+#' @import DBI
 
 connect_to_postgres <- function(auth_file_location = 
                                   rprojroot::find_root(
