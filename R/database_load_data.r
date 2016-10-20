@@ -51,7 +51,29 @@ run_look_list <- function(look_list){
       })
     )
 
-  type_convert_as_is <- function(x)type.convert(x, as.is = T)
+  type_convert_as_is <- function(x){
+    date_pattern <- '^[0-9]{4}-[0-9]{2}-[0-9]{2}$'
+    match_date_pattern <- grepl(date_pattern, x)
+    all_match_date_pattern <- all(match_date_pattern)
+    
+    datetime_pattern <- '^[0-9]{4}-[0-9]{2}-[0-9]{2} [0-9]{2}:[0-9]{2}:[0-9]{2}$' 
+    match_datetime_pattern <- grepl(datetime_pattern, x)
+    all_match_datetime_pattern <- all(match_datetime_pattern)
+   
+    if(all_match_date_pattern){
+      out <- as.Date(x)
+    } else if(all_match_datetime_pattern){
+      dates <- substr(x, 1, 10)
+      times <- substr(x, 12, 19)
+      out <- chron::chron(dates. = dates
+                          , times. = times
+                          , format = c(dates = 'y-m-d', times = "h:m:s"))
+    }
+      else{
+      out <- type.convert(x, as.is = T)
+    }
+    return(out)
+  }
   out <-
     lapply(
       look_list

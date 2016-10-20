@@ -17,7 +17,8 @@ Imports:
     RPostgreSQL,
     DBI,
     RJSONIO,
-    ggthemes
+    ggthemes,
+    chron
 Remotes: looker/lookr
 Suggests:
     testthat,
