@@ -13,10 +13,10 @@
 #' connect_to_looker(auth_file_location="~/authfiles")
 #' @export
 
-connect_to_lookr <- function(auth_file_location = 
-                               rprojroot::find_root(
-                                 rprojroot::has_file('authenticate')
-                               )
+connect_to_lookr <- function(auth_file_location = '~/.auth'
+#                                rprojroot::find_root(
+#                                  rprojroot::has_file('authenticate')
+#                                )
                               , ...){
   # Set java memory limit
   options(java.parameters = "-Xmx6g")
@@ -49,10 +49,10 @@ connect_to_lookr <- function(auth_file_location =
 #' @import RPostgreSQL
 #' @import DBI
 
-connect_to_postgres <- function(auth_file_location = 
-                                  rprojroot::find_root(
-                                    rprojroot::has_file('authenticate')
-                                  )
+connect_to_postgres <- function(auth_file_location = '~/.auth'
+#                                   rprojroot::find_root(
+#                                     rprojroot::has_file('authenticate')
+#                                   )
                                 , ...){
   driver <- DBI::dbDriver("PostgreSQL")
   if(is.character(auth_file_location)){

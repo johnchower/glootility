@@ -68,8 +68,7 @@ run_look_list <- function(look_list){
       out <- chron::chron(dates. = dates
                           , times. = times
                           , format = c(dates = 'y-m-d', times = "h:m:s"))
-    }
-      else{
+    } else{
       out <- type.convert(x, as.is = T)
     }
     return(out)
