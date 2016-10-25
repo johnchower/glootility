@@ -5,7 +5,9 @@
 \title{Create a Tufte-style bar chart}
 \usage{
 tufte_bar_chart(df, ybreaks = 0, x_var, y_var,
-  theme_tufte_opts = list(base_size = 36, ticks = T), ...)
+  theme_tufte_opts = list(base_size = 36, ticks = T),
+  geom_bar_opts = list(fill = "#888888", stat = "identity", width = 0.25),
+  ...)
 }
 \arguments{
 \item{df}{A data frame containing the data to be plotted}
@@ -16,6 +18,8 @@ tufte_bar_chart(df, ybreaks = 0, x_var, y_var,
 the x and y variables, respectively.}
 
 \item{theme_tufte_opts}{Arguments to be passed to ggthemes::theme_tufte}
+
+\item{geom_bar_opts}{Arguments to be passed to ggplot2::geom_bar}
 }
 \value{
 A ggplot object
