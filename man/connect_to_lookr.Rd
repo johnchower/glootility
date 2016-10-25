@@ -4,9 +4,7 @@
 \alias{connect_to_lookr}
 \title{Connect to Looker via the LookR package.}
 \usage{
-
-  connect_to_lookr(auth_file_location = rprojroot::find_root(rprojroot::has_file("authenticate")),
-  ...)
+connect_to_lookr(auth_file_location = "~/.auth", ...)
 }
 \arguments{
 \item{auth_file_location}{A character. Give the path of the directory where

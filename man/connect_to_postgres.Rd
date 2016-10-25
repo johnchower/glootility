@@ -4,9 +4,7 @@
 \alias{connect_to_postgres}
 \title{Connect to Postgres via the RPostgreSQL package.}
 \usage{
-
-  connect_to_postgres(auth_file_location = rprojroot::find_root(rprojroot::has_file("authenticate")),
-  ...)
+connect_to_postgres(auth_file_location = "~/.auth", ...)
 }
 \arguments{
 \item{auth_file_location}{A character. Give the path of the directory where
