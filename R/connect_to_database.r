@@ -8,6 +8,8 @@
 #' your authenticate file is located. If left blank, R will search for a 
 #' file named 'authenticate' in your current working directory. Set to NULL 
 #' if you want to enter your credentials manually.
+#' @param memory_allowed Numeric, specifies the java heap size (in gigs). Must
+#' be set at a value below your system memory.
 #' @return Connects your R session to the Looker API. No objects are returned.
 #' @examples
 #' connect_to_looker(auth_file_location="~/authfiles")
@@ -17,9 +19,11 @@ connect_to_lookr <- function(auth_file_location = '~/.auth'
 #                                rprojroot::find_root(
 #                                  rprojroot::has_file('authenticate')
 #                                )
+                              , memory_allowed = 6
                               , ...){
   # Set java memory limit
-  options(java.parameters = "-Xmx6g")
+  java_param <- paste0('-Xmx', memory_allowed, 'g')
+  options(java.parameters = java_param)
   # Look for an authentication file. Use it to login if one is found.
   if(is.character(auth_file_location)){
     auth_info <- readLines(

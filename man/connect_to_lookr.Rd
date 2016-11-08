@@ -4,13 +4,16 @@
 \alias{connect_to_lookr}
 \title{Connect to Looker via the LookR package.}
 \usage{
-connect_to_lookr(auth_file_location = "~/.auth", ...)
+connect_to_lookr(auth_file_location = "~/.auth", memory_allowed = 6, ...)
 }
 \arguments{
 \item{auth_file_location}{A character. Give the path of the directory where
 your authenticate file is located. If left blank, R will search for a 
 file named 'authenticate' in your current working directory. Set to NULL 
 if you want to enter your credentials manually.}
+
+\item{memory_allowed}{Numeric, specifies the java heap size (in gigs). Must
+be set at a value below your system memory.}
 }
 \value{
 Connects your R session to the Looker API. No objects are returned.
