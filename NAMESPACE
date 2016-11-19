@@ -2,6 +2,7 @@
 
 export(connect_to_lookr)
 export(connect_to_postgres)
+export(connect_to_redshift)
 export(load_and_name_csvs_from_directory)
 export(run_look_list)
 export(run_query_list)
