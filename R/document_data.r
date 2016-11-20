@@ -4,5 +4,4 @@
 #' 'growing selves'.
 #'
 #' @format A character vector.
-#' @export
 "gloo_user_emails"
