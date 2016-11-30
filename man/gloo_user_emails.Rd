@@ -3,7 +3,7 @@
 \docType{data}
 \name{gloo_user_emails}
 \alias{gloo_user_emails}
-\title{Gloo internal emails}
+\title{Gloo internal emails.}
 \format{A character vector.}
 \usage{
 gloo_user_emails

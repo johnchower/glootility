@@ -126,3 +126,46 @@ connect_to_redshift <- function(auth_file_location = '~/.auth'
          , list(drv = driver, con = connection)
          , envir = .GlobalEnv)
 }
+
+#' Connect to Redshift dev via the RPostgreSQL package.
+#' 
+#' @param auth_file_location A character. Give the path of the directory where
+#' your authenticate file is located. If left blank, R will search for a 
+#' file named 'authenticate' in your current working directory. Set to NULL 
+#' if you want to enter your credentials manually.
+#' @return A list containing a driver object, drv, and a connection object,
+#' con.
+#' @examples
+#' connect_to_postgres(auth_file_location="~/authfiles")
+#' @export
+#' @import RPostgreSQL
+#' @import DBI
+
+connect_to_redshift_dev <- function(auth_file_location = '~/.auth'
+#                                   rprojroot::find_root(
+#                                     rprojroot::has_file('authenticate')
+#                                   )
+                                , ...){
+  driver <- DBI::dbDriver("PostgreSQL")
+  if(is.character(auth_file_location)){
+    auth_info <- readLines(
+                   paste(auth_file_location, "authenticate", sep="/")
+                 )
+    connection <- RPostgreSQL::dbConnect(
+                    driver
+                    , dbname = auth_info[14]
+                    , host = auth_info[15]
+                    , port = auth_info[16]
+                    , user = auth_info[17]
+                    , password = auth_info[18]
+                  ) 
+  } else {
+    connection <- RPostgreSQL::dbConnect(
+                    driver
+                    , ...
+                  ) 
+  }
+  assign("redshift_dev_connection"
+         , list(drv = driver, con = connection)
+         , envir = .GlobalEnv)
+}
