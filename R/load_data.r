@@ -9,6 +9,7 @@
 #'
 #' @param path The location of the directory to be loaded.
 #' @return Alters the global environment, doesn't return any object.
+#' @importFrom utils read.csv
 #' @export
 
 load_and_name_csvs_from_directory <- function(path, ...){

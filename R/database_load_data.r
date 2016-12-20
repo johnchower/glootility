@@ -7,6 +7,7 @@
 #'  See gloograph::test_queries for an example of how to format this list.
 #' @param connection The production database's PostgreSQL connection object.
 #' @return A named list of data frames, one for each (query_name, query) pair.
+#' @importFrom stats setNames
 #' @export
 
 run_query_list <- function(query_list
@@ -38,6 +39,8 @@ run_query_list <- function(query_list
 #' @param look_list A list of (look_name, look_id) pairs.
 #'  See gloograph::test_looks for an example of how to format this list.
 #' @return A named list of data frames, one for each (look_name, look_id) pair.
+#' @importFrom stats setNames
+#' @importFrom utils type.convert
 #' @export
 
 run_look_list <- function(look_list){
