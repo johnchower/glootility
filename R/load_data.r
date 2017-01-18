@@ -8,6 +8,7 @@
 #' files in csv_test for an example of how to properly format said JSON file.
 #'
 #' @param path The location of the directory to be loaded.
+#' @param ... Arguments to pass to assign_by_colnames_2
 #' @return Alters the global environment, doesn't return any object.
 #' @importFrom utils read.csv
 #' @export
@@ -59,6 +60,7 @@ load_name_list_from_directory <- function(name_list_path){
 #' c("name1", "name2"), assigned_name = "out_name"), list(col.names =
 #' c("name3"), assigned_name = "out_name2")). Such lists are generated from
 #' JSON files (see csv_test/name_list.JSON)
+#' @param ... additional parameters to pass to assign_by_colnames_1
 #' @return Alters the global environment, doesn't return any object.
 
 assign_by_colnames_2 <- function(df_list
@@ -79,6 +81,7 @@ assign_by_colnames_2 <- function(df_list
 #' c("name1", "name2"), assigned_name = "out_name"), list(col.names =
 #' c("name3"), assigned_name = "out_name2")). Such lists are generated from
 #' JSON files (see csv_test/name_list.JSON)
+#' @param ... additional parameters to pass to assign_by_colnames_0
 #' @return Alters the global environment, doesn't return any object.
 
 assign_by_colnames_1 <- function(df
@@ -101,6 +104,7 @@ assign_by_colnames_1 <- function(df
 #' @param col.names a character vector
 #' @param assigned_name The name that df will be assigned in env if its
 #' column names match col.names
+#' @param env Environment in which to assign the data frame to a variable name
 #' @return Alters the global environment, doesn't return any object.
 
 

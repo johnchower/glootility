@@ -11,6 +11,8 @@ connect_to_postgres(auth_file_location = "~/.auth", ...)
 your authenticate file is located. If left blank, R will search for a 
 file named 'authenticate' in your current working directory. Set to NULL 
 if you want to enter your credentials manually.}
+
+\item{...}{Additional parameters to pass to RPostgreSQL::dbConnect}
 }
 \value{
 A list containing a driver object, drv, and a connection object,
@@ -18,8 +20,5 @@ con.
 }
 \description{
 Connect to Postgres via the RPostgreSQL package.
-}
-\examples{
-connect_to_postgres(auth_file_location="~/authfiles")
 }
 

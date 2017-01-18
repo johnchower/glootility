@@ -10,8 +10,11 @@
 #'
 #' @param df A data frame containing the data to be plotted
 #' @param ybreaks A vector determining where the y-axis breaks are.
-#' @param x_var, y_var Characters that name the columns of df to be used for
-#' the x and y variables, respectively.
+#' @param x_var Character that names the column of df to be used for
+#' the x variable.
+#' @param y_var Character that names the column of df to be used for
+#' the y variable.
+#' @param ... Arguments to pass to scale_y_continuous
 #' @param theme_tufte_opts Arguments to be passed to ggthemes::theme_tufte
 #' @param geom_bar_opts Arguments to be passed to ggplot2::geom_bar
 #' @return A ggplot object
@@ -36,8 +39,11 @@ tufte_bar_chart <- function(df
 #'
 #' @param df A data frame containing the data to be plotted
 #' @param ybreaks A vector determining where the y-axis breaks are.
-#' @param x_var, y_var Characters that name the columns of df to be used for
-#' the x and y variables, respectively.
+#' @param x_var Character that names the column of df to be used for
+#' the x variable.
+#' @param y_var Character that names the column of df to be used for
+#' the y variable.
+#' @param ... Arguments to pass to scale_y_continuous
 #' @param group Character that determines which column of df to group by.
 #' @param theme_tufte_opts Arguments to be passed to ggthemes::theme_tufte
 #' @param geom_bar_opts Arguments to be passed to ggplot2::geom_bar

@@ -10,9 +10,8 @@
 #' if you want to enter your credentials manually.
 #' @param memory_allowed Numeric, specifies the java heap size (in gigs). Must
 #' be set at a value below your system memory.
+#' @param ... Additional parameters to pass to LookR::looker_setup
 #' @return Connects your R session to the Looker API. No objects are returned.
-#' @examples
-#' connect_to_looker(auth_file_location="~/authfiles")
 #' @export
 
 connect_to_lookr <- function(auth_file_location = '~/.auth'
@@ -45,10 +44,9 @@ connect_to_lookr <- function(auth_file_location = '~/.auth'
 #' your authenticate file is located. If left blank, R will search for a 
 #' file named 'authenticate' in your current working directory. Set to NULL 
 #' if you want to enter your credentials manually.
+#' @param ... Additional parameters to pass to RPostgreSQL::dbConnect
 #' @return A list containing a driver object, drv, and a connection object,
 #' con.
-#' @examples
-#' connect_to_postgres(auth_file_location="~/authfiles")
 #' @export
 #' @import RPostgreSQL
 #' @import DBI
@@ -90,10 +88,9 @@ connect_to_postgres <- function(auth_file_location = '~/.auth'
 #' your authenticate file is located. If left blank, R will search for a 
 #' file named 'authenticate' in your current working directory. Set to NULL 
 #' if you want to enter your credentials manually.
+#' @param ... Additional parameters to pass to RPostgreSQL::dbConnect
 #' @return A list containing a driver object, drv, and a connection object,
 #' con.
-#' @examples
-#' connect_to_postgres(auth_file_location="~/authfiles")
 #' @export
 #' @import RPostgreSQL
 #' @import DBI
@@ -133,10 +130,9 @@ connect_to_redshift <- function(auth_file_location = '~/.auth'
 #' your authenticate file is located. If left blank, R will search for a 
 #' file named 'authenticate' in your current working directory. Set to NULL 
 #' if you want to enter your credentials manually.
+#' @param ... Additional parameters to pass to RPostgreSQL::dbConnect
 #' @return A list containing a driver object, drv, and a connection object,
 #' con.
-#' @examples
-#' connect_to_postgres(auth_file_location="~/authfiles")
 #' @export
 #' @import RPostgreSQL
 #' @import DBI

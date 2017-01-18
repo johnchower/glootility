@@ -15,6 +15,8 @@ assign_by_colnames_0(df, col.names, assigned_name, env = globalenv())
 
 \item{assigned_name}{The name that df will be assigned in env if its
 column names match col.names}
+
+\item{env}{Environment in which to assign the data frame to a variable name}
 }
 \value{
 Alters the global environment, doesn't return any object.
