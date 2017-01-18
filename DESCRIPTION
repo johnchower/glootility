@@ -17,7 +17,8 @@ Imports:
     DBI,
     RJSONIO,
     ggthemes,
-    chron
+    chron,
+    dplyr
 Remotes: looker/lookr
 Suggests:
     testthat,
