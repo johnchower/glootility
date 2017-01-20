@@ -6,6 +6,14 @@
 #' @format A character vector.
 "gloo_user_emails"
 
+#' User flash report category query.
+#'
+#' Creates a temporary table in Redshift that matches users to their
+#' Flash Report categories.
+#'
+#' @format A character vector.
+"query_user_flash_cat"
+
 #' Platform action flash report category query.
 #'
 #' Creates a temporary table in Redshift that matches platform actions to their
