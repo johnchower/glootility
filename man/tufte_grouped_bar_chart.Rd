@@ -14,14 +14,19 @@ tufte_grouped_bar_chart(df, ybreaks = 0, x_var, y_var, group,
 
 \item{ybreaks}{A vector determining where the y-axis breaks are.}
 
-\item{x_var, }{y_var Characters that name the columns of df to be used for
-the x and y variables, respectively.}
+\item{x_var}{Character that names the column of df to be used for
+the x variable.}
+
+\item{y_var}{Character that names the column of df to be used for
+the y variable.}
 
 \item{group}{Character that determines which column of df to group by.}
 
 \item{theme_tufte_opts}{Arguments to be passed to ggthemes::theme_tufte}
 
 \item{geom_bar_opts}{Arguments to be passed to ggplot2::geom_bar}
+
+\item{...}{Arguments to pass to scale_y_continuous}
 }
 \value{
 A ggplot object

@@ -13,6 +13,8 @@ load_and_name_csvs_from_directory(path, ...)
 }
 \arguments{
 \item{path}{The location of the directory to be loaded.}
+
+\item{...}{Arguments to pass to assign_by_colnames_2}
 }
 \value{
 Alters the global environment, doesn't return any object.

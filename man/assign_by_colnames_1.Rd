@@ -15,6 +15,8 @@ assign_by_colnames_1(df, name_list, ...)
 c("name1", "name2"), assigned_name = "out_name"), list(col.names =
 c("name3"), assigned_name = "out_name2")). Such lists are generated from
 JSON files (see csv_test/name_list.JSON)}
+
+\item{...}{additional parameters to pass to assign_by_colnames_0}
 }
 \value{
 Alters the global environment, doesn't return any object.

@@ -14,14 +14,13 @@ if you want to enter your credentials manually.}
 
 \item{memory_allowed}{Numeric, specifies the java heap size (in gigs). Must
 be set at a value below your system memory.}
+
+\item{...}{Additional parameters to pass to LookR::looker_setup}
 }
 \value{
 Connects your R session to the Looker API. No objects are returned.
 }
 \description{
 Connect to Looker via the LookR package.
-}
-\examples{
-connect_to_looker(auth_file_location="~/authfiles")
 }
 
